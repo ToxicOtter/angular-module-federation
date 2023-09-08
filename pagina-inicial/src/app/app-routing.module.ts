@@ -11,12 +11,17 @@ const routes: Routes = [
   {
     path: 'module',
     loadChildren: () => loadRemoteModule({
+      type: 'module',
       remoteEntry: 'http://localhost:4200/remoteEntry.js',
-      remoteName: 'mfa1',
       exposedModule: './Module'
     }).then((m) => {
       return m.HelloModule
     })
+    // .catch(e => {
+    //   return import('src/app/placeholder/placeholder.module').then(m => {m.PlaceholderModule})
+    // })
+    // loadChildren: () => import('mfa1/Module').then(m => m.HelloModule)
+
   }
 ];
 

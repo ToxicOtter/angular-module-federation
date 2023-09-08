@@ -28,9 +28,10 @@ module.exports = {
     new ModuleFederationPlugin({
         library: { type: "module" },     
         
-        remotes: {
-            mfa1: 'mfa1@http://localhost:4200/remoteEntry.js',
-        },
+        // remotes: {
+        // //     mfa1: 'mfa1@http://localhost:4200/remoteEntry.js',
+        //     mfa1: 'http://localhost:4200/remoteEntry.js'
+        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
