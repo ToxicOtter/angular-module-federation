@@ -12,7 +12,6 @@ module.exports = {
   output: {
     uniqueName: "mfa1",
     publicPath: "auto"
-    //publicPath: 'http://localhost:4200'
   },
   optimization: {
     runtimeChunk: false
@@ -29,19 +28,11 @@ module.exports = {
     new ModuleFederationPlugin({
         library: { type: "module" },
 
-        // For remotes (please adjust)
         name: "mfa1",
         filename: "remoteEntry.js",
         exposes: {
-            //'./Component': './/src/app/app.component.ts'
-            './Module': './src/app/app.module.ts'
+            './Module': './src/app/hello/hello.module.ts'
         },        
-        
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfa1": "http://localhost:3000/remoteEntry.js",
-
-        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 

@@ -11,8 +11,7 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "paginaInicial",
-    //publicPath: "auto"
-    publicPath: 'http://localhost:4201'
+    publicPath: "auto"
   },
   optimization: {
     runtimeChunk: false
@@ -27,16 +26,8 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
-
-        // For remotes (please adjust)
-        // name: "paginaInicial",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './/src/app/app.component.ts',
-        // },        
+        library: { type: "module" },     
         
-        // For hosts (please adjust)
         remotes: {
             mfa1: 'mfa1@http://localhost:4200/remoteEntry.js',
         },
